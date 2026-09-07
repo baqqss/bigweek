@@ -77,7 +77,10 @@
 
         function spawnBurger() {
             const x = Math.random() * (width - 60) + 30;
-            const size = Math.random() * 6 + 10;
+            
+            // Dynaaminen koon laskenta: mobiilissa pienempi, työpöydällä ennallaan
+            const baseSize = width < 600 ? width * 0.015 : 10;
+            const size = Math.random() * (width < 600 ? 3 : 6) + baseSize;
             
             const burger = Bodies.circle(x, -30, size, {
                 restitution: 0.9,
@@ -111,7 +114,7 @@
             };
             lastMousePos = currentPos;
 
-            const radius = 50;
+            const radius = width < 600 ? 35 : 50;
             const mouseSpeed = Vector.magnitude(mouseVelocity);
 
             burgers.forEach(burger => {
