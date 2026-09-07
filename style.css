@@ -2,7 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'W95FA', 'Courier New', monospace;
+    font-family: 'W95FA', 'VT323', 'Courier New', monospace;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: none;
 }
 
 body {
@@ -14,6 +17,7 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
+    touch-action: none;
 }
 
 .container {
@@ -138,4 +142,5 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 1;
+    touch-action: none;
 }

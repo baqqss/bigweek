@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>bigweek — Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-w95fa/1.0.0/w95fa.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
@@ -98,8 +101,8 @@
         let lastMousePos = { x: -1000, y: -1000 };
         let mouseVelocity = { x: 0, y: 0 };
 
-        window.addEventListener('mousemove', (e) => {
-            const currentPos = { x: e.clientX, y: e.clientY };
+        const handleMove = (clientX, clientY) => {
+            const currentPos = { x: clientX, y: clientY };
 
             mouseVelocity = {
                 x: currentPos.x - lastMousePos.x,
@@ -107,21 +110,36 @@
             };
             lastMousePos = currentPos;
 
-            const radius = 35;
+            // Kosketusalue hieman suuremmaksi mobiilille (50px)
+            const radius = 50;
             const mouseSpeed = Vector.magnitude(mouseVelocity);
 
             burgers.forEach(burger => {
                 const distance = Vector.magnitude(Vector.sub(burger.position, currentPos));
                 if (distance < radius) {
                     const pushDirection = Vector.normalise(Vector.sub(burger.position, currentPos));
-                    
-                    const forceMagnitude = (1 - distance / radius) * (0.008 + mouseSpeed * 0.002);
+                    const forceMagnitude = (1 - distance / radius) * (0.012 + mouseSpeed * 0.003);
                     const force = Vector.mult(pushDirection, forceMagnitude);
 
                     Body.applyForce(burger, burger.position, force);
                 }
             });
-        });
+        };
+
+        window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+        
+        // Estetään selaimen skrollaus kosketettaessa, jotta burgerit reagoivat sormeen
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                lastMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+        }, { passive: false });
+
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: false });
 
         window.addEventListener('resize', () => {
             width = window.innerWidth;
