@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>bigweek — Coming Soon</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -110,7 +111,6 @@
             };
             lastMousePos = currentPos;
 
-            // Kosketusalue hieman suuremmaksi mobiilille (50px)
             const radius = 50;
             const mouseSpeed = Vector.magnitude(mouseVelocity);
 
@@ -127,8 +127,7 @@
         };
 
         window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
-        
-        // Estetään selaimen skrollaus kosketettaessa, jotta burgerit reagoivat sormeen
+
         window.addEventListener('touchstart', (e) => {
             if (e.touches.length > 0) {
                 lastMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
