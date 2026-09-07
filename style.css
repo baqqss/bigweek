@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'W95FA', 'Courier New', monospace;
+}
+
+body {
+    background-color: #000000;
+    color: rgb(255, 245, 224);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    z-index: 2;
+    position: relative;
+    pointer-events: none;
+}
+
+.container a {
+    pointer-events: auto;
+}
+
+.logo-container {
+    margin-bottom: 25px;
+}
+
+.logo {
+    max-width: 140px;
+    height: auto;
+    filter: none;
+}
+
+.logo-fallback {
+    display: none;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: rgb(255, 245, 224);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: rgb(255, 153, 51);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: rgb(255, 245, 224);
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.tagline span {
+    color: rgb(255, 245, 224);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 245, 224);
+    text-decoration: none;
+    width: 130px;
+    height: 48px;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-text {
+    font-size: 1rem;
+    line-height: 1;
+    transform: translateY(-2px);
+}
+
+.corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: #444444;
+    border-style: solid;
+    transition: all 0.2s ease;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    border-width: 2px 2px 0 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 2px 2px;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+}
+
+.btn:hover {
+    color: rgb(255, 153, 51);
+}
+
+.btn:hover .corner {
+    border-color: rgb(255, 153, 51);
+}
+
+#physics-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
