@@ -14,29 +14,31 @@
 </head>
 <body>
 
-    <main class="container">
-        <div class="logo-container">
-            <img src="logo_loading.gif" alt="bigweek logo" class="logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='block';">
-            <div id="logo-placeholder" class="logo-fallback">BIGWEEK</div>
-        </div>
+    <div class="content-wrapper">
+        <main class="container">
+            <div class="logo-container">
+                <img src="logo_loading.gif" alt="bigweek logo" class="logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='block';">
+                <div id="logo-placeholder" class="logo-fallback">BIGWEEK</div>
+            </div>
 
-        <h1 class="hero-title">COMING SOON</h1>
-        
-        <p class="tagline">
-            Every project promises a big week ahead.<br>
-            <span>We are the big week.</span>
-        </p>
+            <h1 class="hero-title">COMING SOON</h1>
+            
+            <p class="tagline">
+                Every project promises a big week ahead.<br>
+                <span>We are the big week.</span>
+            </p>
 
-        <div class="social-links">
-            <a href="https://x.com/bigweekxyz" target="_blank" rel="noopener noreferrer" class="btn">
-                <span class="corner top-left"></span>
-                <span class="corner top-right"></span>
-                <span class="corner bottom-left"></span>
-                <span class="corner bottom-right"></span>
-                <span class="btn-text">x x x</span>
-            </a>
-        </div>
-    </main>
+            <div class="social-links">
+                <a href="https://x.com/bigweekxyz" target="_blank" rel="noopener noreferrer" class="btn">
+                    <span class="corner top-left"></span>
+                    <span class="corner top-right"></span>
+                    <span class="corner bottom-left"></span>
+                    <span class="corner bottom-right"></span>
+                    <span class="btn-text">x x x</span>
+                </a>
+            </div>
+        </main>
+    </div>
 
     <canvas id="trail-canvas"></canvas>
     <div id="physics-canvas"></div>
@@ -46,7 +48,6 @@
 
         const engine = Engine.create();
         const world = engine.world;
-
         engine.gravity.y = 0.35;
 
         const container = document.getElementById('physics-canvas');
@@ -78,7 +79,6 @@
 
         function spawnBurger() {
             const x = Math.random() * (width - 60) + 30;
-            
             const baseSize = width < 600 ? width * 0.015 : 10;
             const size = Math.random() * (width < 600 ? 3 : 6) + baseSize;
             
@@ -102,7 +102,7 @@
 
         setInterval(spawnBurger, 220);
 
-        // Hiukkasjälki
+        // Hiukkasjälki kursorille
         const trailCanvas = document.getElementById('trail-canvas');
         const ctx = trailCanvas.getContext('2d');
         trailCanvas.width = width;
