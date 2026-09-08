@@ -38,9 +38,11 @@
         </div>
     </main>
 
+    <canvas id="trail-canvas"></canvas>
     <div id="physics-canvas"></div>
 
     <script>
+        // --- Matter.js Physics Engine ---
         const { Engine, Render, Runner, Bodies, Composite, Body, Vector } = Matter;
 
         const engine = Engine.create();
@@ -101,6 +103,53 @@
 
         setInterval(spawnBurger, 220);
 
+        // --- Hiiren hiukkasjälki (Cursor Trail) ---
+        const trailCanvas = document.getElementById('trail-canvas');
+        const ctx = trailCanvas.getContext('2d');
+        trailCanvas.width = width;
+        trailCanvas.height = height;
+
+        const particles = [];
+
+        function createParticle(x, y) {
+            const size = Math.random() * 4 + 4;
+            particles.push({
+                x: x,
+                y: y,
+                size: size,
+                alpha: 0.8,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5
+            });
+        }
+
+        function animateTrail() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.025;
+                p.size *= 0.95;
+
+                if (p.alpha <= 0 || p.size <= 0.5) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+
+                ctx.fillStyle = `rgba(255, 153, 51, ${p.alpha})`;
+                // Piirretään pikselimäinen neliö varjohehkulla
+                ctx.shadowColor = 'rgba(255, 153, 51, 0.6)';
+                ctx.shadowBlur = 6;
+                ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+            }
+
+            requestAnimationFrame(animateTrail);
+        }
+        animateTrail();
+
+        // --- Liikkeentunnistus ---
         let lastMousePos = { x: -1000, y: -1000 };
         let mouseVelocity = { x: 0, y: 0 };
 
@@ -112,6 +161,9 @@
                 y: currentPos.y - lastMousePos.y
             };
             lastMousePos = currentPos;
+
+            // Luodaan hiukkasia kursorin kohdalle
+            createParticle(clientX, clientY);
 
             const radius = width < 600 ? 35 : 50;
             const mouseSpeed = Vector.magnitude(mouseVelocity);
@@ -148,6 +200,9 @@
 
             render.canvas.width = width;
             render.canvas.height = height;
+
+            trailCanvas.width = width;
+            trailCanvas.height = height;
 
             Body.setPosition(ground, Vector.create(width / 2, height + 30));
             Body.setPosition(rightWall, Vector.create(width + 30, height / 2));

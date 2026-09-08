@@ -6,6 +6,7 @@
     -webkit-user-select: none;
     user-select: none;
     touch-action: none;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><filter id='glow'><feDropShadow dx='0' dy='0' stdDeviation='1.5' flood-color='%23ff9933' flood-opacity='0.8'/></filter><g filter='url(%23glow)'><rect x='4' y='2' width='8' height='12' fill='%23ff9933'/><rect x='2' y='4' width='12' height='8' fill='%23ff9933'/><rect x='4' y='4' width='8' height='8' fill='%23ffa84d'/></g></svg>") 8 8, auto !important;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
 
 .container a {
     pointer-events: auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><filter id='glow'><feDropShadow dx='0' dy='0' stdDeviation='1.5' flood-color='%23ff9933' flood-opacity='0.8'/></filter><g filter='url(%23glow)'><rect x='4' y='2' width='8' height='12' fill='%23ff9933'/><rect x='2' y='4' width='12' height='8' fill='%23ff9933'/><rect x='4' y='4' width='8' height='8' fill='%23ffa84d'/></g></svg>") 8 8, pointer !important;
 }
 
 .logo-container {
@@ -133,6 +135,16 @@ body {
 
 .btn:hover .corner {
     border-color: rgb(255, 153, 51);
+}
+
+#trail-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
 }
 
 #physics-canvas {
