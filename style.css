@@ -5,6 +5,7 @@
     font-family: 'W95FA', 'VT323', 'Courier New', monospace;
     -webkit-user-select: none;
     user-select: none;
+    cursor: url('cursor.png'), auto !important;
 }
 
 html, body {
@@ -13,6 +14,7 @@ html, body {
     background-color: #000000;
     color: rgb(255, 245, 224);
     overflow: hidden;
+    cursor: url('cursor.png'), auto !important;
 }
 
 .content-wrapper {
@@ -38,7 +40,7 @@ html, body {
 
 .container a {
     pointer-events: auto;
-    cursor: pointer;
+    cursor: url('cursor.png'), pointer !important;
 }
 
 .logo-container {
@@ -92,6 +94,7 @@ html, body {
     height: 48px;
     background: transparent;
     transition: all 0.2s ease;
+    cursor: url('cursor.png'), pointer !important;
 }
 
 .btn-text {
