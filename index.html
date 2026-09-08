@@ -42,7 +42,6 @@
     <div id="physics-canvas"></div>
 
     <script>
-        // --- Matter.js Physics Engine ---
         const { Engine, Render, Runner, Bodies, Composite, Body, Vector } = Matter;
 
         const engine = Engine.create();
@@ -103,7 +102,7 @@
 
         setInterval(spawnBurger, 220);
 
-        // --- Hiiren hiukkasjälki (Cursor Trail) ---
+        // Hiukkasjälki
         const trailCanvas = document.getElementById('trail-canvas');
         const ctx = trailCanvas.getContext('2d');
         trailCanvas.width = width;
@@ -139,7 +138,6 @@
                 }
 
                 ctx.fillStyle = `rgba(255, 153, 51, ${p.alpha})`;
-                // Piirretään pikselimäinen neliö varjohehkulla
                 ctx.shadowColor = 'rgba(255, 153, 51, 0.6)';
                 ctx.shadowBlur = 6;
                 ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
@@ -149,7 +147,6 @@
         }
         animateTrail();
 
-        // --- Liikkeentunnistus ---
         let lastMousePos = { x: -1000, y: -1000 };
         let mouseVelocity = { x: 0, y: 0 };
 
@@ -162,7 +159,6 @@
             };
             lastMousePos = currentPos;
 
-            // Luodaan hiukkasia kursorin kohdalle
             createParticle(clientX, clientY);
 
             const radius = width < 600 ? 35 : 50;

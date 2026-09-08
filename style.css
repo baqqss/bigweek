@@ -6,7 +6,7 @@
     -webkit-user-select: none;
     user-select: none;
     touch-action: none;
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><filter id='glow'><feDropShadow dx='0' dy='0' stdDeviation='1.5' flood-color='%23ff9933' flood-opacity='0.8'/></filter><g filter='url(%23glow)'><rect x='4' y='2' width='8' height='12' fill='%23ff9933'/><rect x='2' y='4' width='12' height='8' fill='%23ff9933'/><rect x='4' y='4' width='8' height='8' fill='%23ffa84d'/></g></svg>") 8 8, auto !important;
+    cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSU24A0EAAAASUVORK5CYII=") 8 8, auto;
 }
 
 body {
@@ -19,6 +19,7 @@ body {
     overflow: hidden;
     position: relative;
     touch-action: none;
+    cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHJlY3QgeD0iNCIgeT0iMiIgd2lkdGg9IjgiIGhlaWdodD0iMTIiIGZpbGw9IiNmZjk5MzMiLz48cmVjdCB4PSIyIiB5PSI0IiB3aWR0aD0iMTIiIGhlaWdodD0iOCIgZmlsbD0iI2ZmOTkzMyIvPjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmE4NGQiLz48L3N2Zz4="), auto;
 }
 
 .container {
@@ -32,7 +33,7 @@ body {
 
 .container a {
     pointer-events: auto;
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><filter id='glow'><feDropShadow dx='0' dy='0' stdDeviation='1.5' flood-color='%23ff9933' flood-opacity='0.8'/></filter><g filter='url(%23glow)'><rect x='4' y='2' width='8' height='12' fill='%23ff9933'/><rect x='2' y='4' width='12' height='8' fill='%23ff9933'/><rect x='4' y='4' width='8' height='8' fill='%23ffa84d'/></g></svg>") 8 8, pointer !important;
+    cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHJlY3QgeD0iNCIgeT0iMiIgd2lkdGg9IjgiIGhlaWdodD0iMTIiIGZpbGw9IiNmZjk5MzMiLz48cmVjdCB4PSIyIiB5PSI0IiB3aWR0aD0iMTIiIGhlaWdodD0iOCIgZmlsbD0iI2ZmOTkzMyIvPjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmE4NGQiLz48L3N2Zz4="), pointer;
 }
 
 .logo-container {
